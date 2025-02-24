@@ -29,3 +29,8 @@ resource "aws_iam_role" "ec2_role" {
   EOF
 
 }
+
+resource "aws_iam_role_policy_attachment" "admin_role_attach" {
+  role       = aws_iam_role.ec2_role.name  
+  policy_arn = "arn:aws:iam::aws:policy/AdministratorAccess"
+}
